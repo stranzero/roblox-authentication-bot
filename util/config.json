@@ -12,5 +12,6 @@
     "robloxclientID": "<oauth client id>", 
     "robloxtoken": "<oauth token>",
     "MongooseURI": "mongodb+srv://<name>:<password>@<host>/<databasename>?retryWrites=true&w=majority",
-    "port": "80"
+    "port": "80",
+	"verificationChannel": "channelID"
 }

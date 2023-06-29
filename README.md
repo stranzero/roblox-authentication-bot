@@ -24,7 +24,8 @@ I have recently created a bot utilizing the Roblox OAuth, it is pretty simple an
 - node.js v16.6 or higher
 - a domain which uses https (use cloudflare for free ssl) or use localhost if you are just testing this out.
 - Discord Bot
-- [OAuth Project](https://create.roblox.com/dashboard/credentials) - Head to OAuth 2.0 Apps
+- [OAuth Project](https://create.roblox.com/dashboard/credentials) - Head to OAuth 2.0 Apps (give it openid and profile permissions)
+- MongoDB
 
 
 
