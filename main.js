@@ -25,7 +25,7 @@ process.on('unhandledRejection', error => {
 });
 
 // webserver
-app.listen(80, () => {
+app.listen(config.port, () => {
 	console.log('Listening on port 80')
 })
 app.get('/', (req, res) => {
