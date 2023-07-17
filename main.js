@@ -25,12 +25,50 @@ process.on('unhandledRejection', error => {
 });
 
 // webserver
-app.listen(config.port, () => {
+app.listen(80, () => {
 	console.log('Listening on port 80')
 })
+
 app.get('/', (req, res) => {
-	res.send('Hello World!')
+	res.send('Welcome to the Roblox Verification API! This is not a website, but an API.')
 })
+
+app.get('/discord/:discordid', async (req, res) => {
+	// use db to find user
+	const discordid = req.params.discordid
+	const data = await schema.find({ discordID: discordid }).exec();
+	if (data.length === 0) {
+		res.send('An error occurred');
+		res.status(404);
+		res.end();
+	} else {
+		res.status(200);
+		res.send({
+			robloxID: data[0].robloxID,
+			robloxUsername: data[0].robloxUsername,
+			verified: data[0].verified
+		})
+	}
+})
+
+app.get('/roblox/:robloxid', async (req, res) => {
+	// use db to find user
+	const robloxid = req.params.robloxid
+	const data = await schema.find({ robloxID: robloxid }).exec();
+	if (data.length === 0) {
+		res.send('An error occurred');
+		res.status(404);
+		res.end();
+	} else {
+		res.status(200);
+		res.send({
+			discordID: data[0].discordID,
+			robloxUsername: data[0].robloxUsername,
+			verified: data[0].verified
+		})
+	}
+})
+
 app.get('/redirect', async ( req, res ) => {
 	// make code into string
 	const code = req.query.code
@@ -86,7 +124,14 @@ app.get('/redirect', async ( req, res ) => {
 				const guild = client.guilds.cache.get(config.guildID)
 				const username = userInfo.preferred_username
 				const member = await guild.members.fetch(user.id)
-				member.setNickname(username)
+
+				if (member.id === guild.ownerId) {
+					return;
+				}
+				else {
+					member.setNickname(username)
+				}
+				
 			  } else {
 				const embed = new discord.MessageEmbed()
 				  .setColor('RED')
