@@ -38,9 +38,9 @@ app.get('/discord/:discordid', async (req, res) => {
 	const discordid = req.params.discordid
 	const data = await schema.find({ discordID: discordid }).exec();
 	if (data.length === 0) {
-		res.send('An error occurred');
-		res.status(404);
-		res.end();
+		res.send({
+			verified: false
+		})
 	} else {
 		res.status(200);
 		res.send({
@@ -56,9 +56,9 @@ app.get('/roblox/:robloxid', async (req, res) => {
 	const robloxid = req.params.robloxid
 	const data = await schema.find({ robloxID: robloxid }).exec();
 	if (data.length === 0) {
-		res.send('An error occurred');
-		res.status(404);
-		res.end();
+		res.send({
+			verified: false
+		})
 	} else {
 		res.status(200);
 		res.send({
