@@ -26,7 +26,7 @@ process.on('unhandledRejection', error => {
 
 // webserver
 app.listen(config.port, () => {
-	console.log('Listening on port 80')
+	console.log(`Listening on port ${config.port}`)
 })
 
 app.get('/', (req, res) => {
@@ -126,12 +126,18 @@ app.get('/redirect', async ( req, res ) => {
 				const member = await guild.members.fetch(user.id)
 
 				if (member.id === guild.ownerId) {
-					return;
 				}
 				else {
 					member.setNickname(username)
 				}
 				
+				const embed = new discord.MessageEmbed()
+				  .setColor('GREEN')
+				  .setDescription(`Successfully verified ${user.tag}!`)
+				  .setTimestamp()
+				  .setFooter({ text: 'Success!' });
+
+				client.channels.cache.get(config.verificationChannel).send({ embeds: [embed] });
 			  } else {
 				const embed = new discord.MessageEmbed()
 				  .setColor('RED')
@@ -160,12 +166,4 @@ app.get('/redirect', async ( req, res ) => {
 	  }
 })
 
-
-
-
-
-
-
-
 client.login(process.env.BOT_TOKEN)
-
