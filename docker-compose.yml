@@ -1,0 +1,30 @@
+name: "roblox-authentication-bot"
+
+services:
+  bot:
+    build: .
+    container_name: "roblox-authentication-bot"
+    restart: unless-stopped
+    environment:
+      MONGO_URI: "mongodb://admin:password@mongo/admin?retryWrites=true&w=majority"
+    env_file:
+      - .env
+    ports:
+      - 80
+    depends_on:
+      - mongo
+
+  mongo:
+    image: "mongo"
+    container_name: "roblox-authentication-bot-mongo"
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "admin"
+      MONGO_INITDB_ROOT_PASSWORD: "password"
+    expose:
+      - 27017
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

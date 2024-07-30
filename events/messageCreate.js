@@ -1,5 +1,5 @@
 const { cooldown, permissions } = require('../util/functions')
-const { prefix } = require(`../util/config.json`)
+const { prefix } = require(`../util/config.js`)
 
 module.exports = {
 	name: 'messageCreate',

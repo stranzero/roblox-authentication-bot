@@ -2,7 +2,8 @@ require('dotenv').config()
 const { getFiles } = require('../util/functions')
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { clientID, guildID } = require('../util/config.json');
+const { clientID, guildID, botToken } = require('../util/config.js');
+const config = require('../util/config.js');
 
 module.exports = (client) => {
 	const commandArray = []
@@ -36,7 +37,7 @@ module.exports = (client) => {
 		client.selectMenus.set(selectMenuFile.name, selectMenuFile)
 		console.log(`\x1b[38;2;144;190;109m[SelectMenus] \x1b[32m${selectMenuFile.name}\x1b[0m has been loaded.`)
 	}
-	const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);
+	const rest = new REST({ version: '9' }).setToken(config.botToken);
 	(async () => {
 		try {
 			await rest.put(

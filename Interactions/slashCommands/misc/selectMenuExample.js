@@ -1,6 +1,6 @@
 const { MessageSelectMenu, MessageActionRow } = require('discord.js')
 const { SlashCommandBuilder } = require('@discordjs/builders')
-const { lightBlue } = require(`../../../util/config.json`)
+const { lightBlue } = require(`../../../util/config.js`)
 const { customEmbed } = require(`../../../util/embed`)
 
 //? Using Select Menus Example.

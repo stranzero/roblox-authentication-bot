@@ -3,7 +3,7 @@ const client = new Client({
 	partials: ['CHANNEL', 'USER', 'GUILD_MEMBER', 'MESSAGE'],
 	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES],
 })
-const config = require('./util/config.json')
+const config = require('./util/config.js')
 const express = require('express');
 const app = express();
 const axios = require('axios')
@@ -166,4 +166,4 @@ app.get('/redirect', async ( req, res ) => {
 	  }
 })
 
-client.login(process.env.BOT_TOKEN)
+client.login(config.botToken)
