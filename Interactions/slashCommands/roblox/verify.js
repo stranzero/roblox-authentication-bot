@@ -54,7 +54,7 @@ module.exports = {
                 let button = new MessageButton()
                     .setStyle('LINK')
                     .setLabel('Verify')
-                    .setURL(`https://authorize.roblox.com/?client_id=${config.robloxclientID}&response_type=Code&redirect_uri=${config.baseUrl}&scope=openid+profile&state=${code}`)
+                    .setURL(`https://authorize.roblox.com/?client_id=${config.robloxclientID}&response_type=Code&redirect_uri=${config.baseUrl}/redirect&scope=openid+profile&state=${code}`)
                 let row = new MessageActionRow()
                     .addComponents(button)
 
