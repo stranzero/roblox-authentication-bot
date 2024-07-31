@@ -15,5 +15,5 @@ module.exports = {
     "MongooseURI": process.env.MONGO_URI,
     "port": process.env?.PORT ?? 80,
 	"verificationChannel": process.env.VERIFICATION_CHANNEL,
-	"baseUrl": process.env.BASE_URL,
+	"baseUrl": process.env.BASE_URI,
 }
