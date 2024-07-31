@@ -2,7 +2,7 @@ const discord = require('discord.js')
 const { MessageButton, MessageActionRow } = require('discord.js')
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const axios = require('axios')
-const config = require('../../../util/config.json')
+const config = require('../../../util/config.js')
 const { MessageEmbed } = require('discord.js')
 const schema = require('../../../util/schema.js')
 const mongo = require('mongoose')
@@ -54,7 +54,7 @@ module.exports = {
                 let button = new MessageButton()
                     .setStyle('LINK')
                     .setLabel('Verify')
-                    .setURL(`https://authorize.roblox.com/?client_id=${config.robloxclientID}&response_type=Code&redirect_uri=https://ce.jakey.vip/redirect&scope=openid+profile&state=${code}`)
+                    .setURL(`https://authorize.roblox.com/?client_id=${config.robloxclientID}&response_type=Code&redirect_uri=${config.baseUrl}/redirect&scope=openid+profile&state=${code}`)
                 let row = new MessageActionRow()
                     .addComponents(button)
 

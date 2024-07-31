@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js')
-const { redTick, red, greenTick, green } = require(`./config.json`)
+const { redTick, red, greenTick, green } = require(`./config.js`)
 
 //? Error Embed.
 function errorEmbed(interaction, description, footer) {

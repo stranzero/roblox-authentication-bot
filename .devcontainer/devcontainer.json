@@ -1,0 +1,55 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+{
+	"name": "roblox-authentication-bot",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:noble",
+
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker": {
+			"dockerDashComposeVersion": "none",
+			"installDockerComposeSwitch": false
+		},
+		"ghcr.io/devcontainers/features/node:1": {},
+		"ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {
+			"packages": [
+				"bash-completion"
+			]
+		}
+	},
+
+	// Use this environment variable if you need to bind mount your local source code into a new container.
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				// miscellaneous
+				"Gruntfuggly.todo-tree",
+				"aaron-bond.better-comments",
+				"streetsidesoftware.code-spell-checker",
+				"mutantdino.resourcemonitor",
+				"EditorConfig.EditorConfig",
+				"PeterSchmalfeldt.explorer-exclude",
+				"ms-azuretools.vscode-docker",
+
+				// cursor utils
+				"wmaurer.change-case",
+				"Cardinal90.multi-cursor-case-preserve",
+				"Lebster.eval-and-replace",
+				"idanp.smartmulticursor",
+
+				// git
+				"mhutchie.git-graph",
+				"donjayamanne.githistory",
+				"GitHub.vscode-pull-request-github",
+				"github.vscode-github-actions",
+
+				// js
+				"oven.bun-vscode",
+				"pflannery.vscode-versionlens"
+			]
+		}
+	}
+}

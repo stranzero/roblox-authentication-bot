@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const schema = require('../util/schema.js')
-const config = require('../util/config.json')
+const config = require('../util/config.js')
 module.exports = {
 	name: 'ready',
 	once: 'true',

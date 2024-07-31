@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js')
-const { green, greenTick } = require(`../../util/config.json`)
+const { green, greenTick } = require(`../../util/config.js`)
 
 module.exports = {
 	name: 'ping',

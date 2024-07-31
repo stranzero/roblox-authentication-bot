@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 const { ContextMenuCommandBuilder } = require('@discordjs/builders');
-const { lightBlue } = require(`../../../util/config.json`)
+const { lightBlue } = require(`../../../util/config.js`)
 
 //? Message Context Menu Example Command.
 module.exports = {

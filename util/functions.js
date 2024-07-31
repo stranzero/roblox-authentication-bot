@@ -1,7 +1,7 @@
 const { readdirSync } = require('fs')
 const { Permissions } = require('discord.js')
 const { errorEmbed, customEmbed } = require(`./embed`)
-const { redTick, red, errorImage } = require(`./config.json`)
+const { redTick, red, errorImage } = require(`./config.js`)
 
 //? Fetch all JS files function.
 function getFiles(dir) {

@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { green, greenTick } = require(`../../../util/config.json`)
+const { green, greenTick } = require(`../../../util/config.js`)
 
 //? A simple ping slash command.
 module.exports = {
